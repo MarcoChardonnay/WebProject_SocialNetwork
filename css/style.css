@@ -1,15 +1,10 @@
-.login-form {
+.login-wrapper {
   width: 300px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f2f2f2;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
-
-.login-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
 }
 
 .login-form input[type="text"],
@@ -21,7 +16,7 @@
   border-radius: 3px;
 }
 
-.login-form button {
+.login-form input[type="submit"] {
   width: 100%;
   padding: 10px;
   background-color: #4CAF50;
@@ -31,6 +26,6 @@
   cursor: pointer;
 }
 
-.login-form button:hover {
+.login-form input[type="submit"]:hover {
   background-color: #45a049;
 }

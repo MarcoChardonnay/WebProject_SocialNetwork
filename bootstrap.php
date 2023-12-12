@@ -5,7 +5,7 @@ define("UPLOAD_DIR", "./resources/img/");
 require_once('db/database.php');
 
 function isUserLoggedIn(){
-    var_dump($_SESSION);
+    //var_dump($_SESSION);
     return isset($_SESSION['ID_user']);
 }
 

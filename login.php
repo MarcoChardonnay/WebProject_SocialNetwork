@@ -2,16 +2,15 @@
 require_once("bootstrap.php");
 
 //redirect to home page if user is logged in
-if(isset($_SESSION['ID_user'])){
+if(isUserLoggedIn()){
     header("Location: home.php");
 }
 
-//echo "login.php"; for debugging purposes
-echo ("<p style='font-size:3em'>This is the login page</p>");
+// Base params
+$templateParams['title'] = 'Login';
+$templateParams['fileName'] = 'login_form.php';
+//$templateParams['scriptFileName'] = 'fetch-login.js';
 
-//for debugging purposes
-echo ("<form action='debugUser.php' method='post'>
-        <input type='submit' value='Login for debugging purposes'>
-        </form>");
+require_once 'template/base.php';
 
 ?>
