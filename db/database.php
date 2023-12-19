@@ -21,7 +21,6 @@ class DatabaseHelper{
     /**
      * Destructor for DatabaseHelper class
      */
-    
     public function __destruct(){
         $this->db->close();
     }
