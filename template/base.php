@@ -6,14 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link rel='stylesheet' type='text/css' href='css/style.css'>
-    <!-- favicon -->
+    <!-- <link rel="icon" href="resources/favicon/favicon.ico" type="image/x-icon"> -->
+
+    <!-- navbar icons -->
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
     <title>
         <?php echo $templateParams['title']; ?>
     </title>
 </head>
 
 <body>
-    <nav></nav>
+    <nav>
+        <ul>
+            <li>
+                <span class="icon fa-light fa-house"></span>
+                <a href="#">Feed</a>
+            </li>
+            <li>
+                <span class="icon fa-regular fa-magnifying-glass"></span>
+                <a href="#">Search</a>
+            </li>
+            <li>
+                <span class="icon fa-solid fa-heart"></span>
+                <a href="#">Notifications</a>
+            </li>
+            <li>
+                <span class="icon fa-regular fa-user"></span>
+                <a href="#">Profile</a>
+            </li>
+            <li>
+                <span class="icon fa-light fa-sliders"></span>
+                <a href="#">Settings</a>
+            </li>
+        </ul>
+    </nav>
     <main>
         <?php
         if (isset($templateParams['fileName'])) {

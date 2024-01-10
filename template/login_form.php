@@ -9,7 +9,3 @@
         <input type="submit" value="Login">
     </form>
 </div>
-
-<!-- <?php
-echo "<p>This is the login page.</p>";
-?> -->
