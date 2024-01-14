@@ -7,9 +7,9 @@ if(isUserLoggedIn()){
 }
 
 // Base params
-$templateParams['title'] = 'Login';
-$templateParams['fileName'] = 'login_form.php';
-//$templateParams['scriptFileName'] = 'fetch-login.js';
+$templateParams['title'] = 'Registration';
+$templateParams['fileName'] = 'registration_form.php';
+//$templateParams['scriptFileName'] = 'fetch_login.js';
 
 require_once 'template/base.php';
 

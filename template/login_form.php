@@ -8,4 +8,5 @@
 
         <input type="submit" value="Login">
     </form>
+    <p>Not registered? <a href="registration.php">Register here</a></p>
 </div>
