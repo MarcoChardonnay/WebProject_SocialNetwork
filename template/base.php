@@ -19,8 +19,9 @@
     <nav>
         <ul>
             <li>
+                <!-- idea: usare due span dentro a un tag <a>, posso usare uno span per text? -->
                 <span class="icon fa-light fa-house"></span>
-                <a href="#">Feed</a>
+                <a href="home.php">Feed</a>
             </li>
             <li>
                 <span class="icon fa-regular fa-magnifying-glass"></span>
@@ -36,7 +37,7 @@
             </li>
             <li>
                 <span class="icon fa-light fa-sliders"></span>
-                <a href="#">Settings</a>
+                <a href="settings.php">Settings</a>
             </li>
         </ul>
     </nav>

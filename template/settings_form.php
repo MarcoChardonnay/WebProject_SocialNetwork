@@ -3,7 +3,7 @@
     <form class="form" action="registration.php" method="POST">
         <h2>Old username:</h2>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" value="Test" required><br><br>
+        <input type="text" id="username" name="username" required><br><br>
 
         <h2>Old password:</h2>
         <label for="password">Password:</label>
@@ -22,7 +22,7 @@
 
         <h2>Previous setting:</h2>
         <label for="notification">Receive Notifications:</label>
-        <input type="checkbox" id="notification" name="notification" value="1"><br><br>
+        <input type="checkbox" id="notification" name="notification" value="1" required><br><br>
 
         <h2>Old profile picture: [image]</h2>
         <label for="profile_picture">Profile Picture URL:</label>
