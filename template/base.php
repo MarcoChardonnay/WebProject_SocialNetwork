@@ -19,25 +19,30 @@
     <nav>
         <ul>
             <li>
-                <!-- idea: usare due span dentro a un tag <a>, posso usare uno span per text? -->
-                <span class="icon fa-light fa-house"></span>
-                <a href="home.php">Feed</a>
+                <a href="home.php">
+                    <span class="icon fa-light fa-house"></span>
+                    <span class="nav-text">Feed</span>
+                </a>
             </li>
             <li>
-                <span class="icon fa-regular fa-magnifying-glass"></span>
-                <a href="#">Search</a>
+                <a href="#">
+                    <span class="icon fa-regular fa-magnifying-glass"></span>
+                    <span class="nav-text">Search</span></a>
             </li>
             <li>
-                <span class="icon fa-solid fa-heart"></span>
-                <a href="#">Notifications</a>
+                <a href="#">
+                    <span class="icon fa-solid fa-heart"></span>
+                    <span class="nav-text">Notifications</span></a>
             </li>
             <li>
-                <span class="icon fa-regular fa-user"></span>
-                <a href="#">Profile</a>
+                <a href="profile.php">
+                    <span class="icon fa-regular fa-user"></span>
+                    <span class="nav-text">Profile</span></a>
             </li>
             <li>
-                <span class="icon fa-light fa-sliders"></span>
-                <a href="settings.php">Settings</a>
+                <a href="settings.php">
+                    <span class="icon fa-light fa-sliders"></span>
+                    <span class="nav-text">Settings</span></a>
             </li>
         </ul>
     </nav>
