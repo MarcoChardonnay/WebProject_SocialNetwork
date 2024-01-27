@@ -4,11 +4,11 @@
   --background-color: hsl(320, 40%, 90%);
   --text-color: hsl(325, 32%, 25%);
   --border-color: hsl(300, 33%, 47%);
-  --icon-size: 32px;
-  --icon-size-desktop: 25px;
+  --icon-size: 40px;
+  --icon-size-desktop: 35px;
   --font-size-desktop: 1.5rem;
-  --foto-size: 6rem;
-  --foto-size-desktop: 10rem;
+  --pfp-size: 8rem;
+  --pfp-size-desktop: 14rem;
 }
 
 * {
@@ -108,22 +108,6 @@ main {
   max-width: 90%;
 }
 
-.square{
-  /* display: relative; */
-  background: white;
-  border: 1px solid black;
-  margin: 1rem;
-  width: var(--foto-size);
-  height: var(--foto-size);
-}
-
-#pfp {
-  align-self: center;
-  border-radius: 50%;
-  border: 2px solid #9090e9;
-  overflow: hidden;
-}
-
 .text-wrap{
   width: 100%;
   display: flex;
@@ -146,7 +130,9 @@ main {
 .post {
   max-width: 600px;
   margin: 20px auto;
+  padding: 30px;
   border: 1px solid #ccc;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -162,6 +148,17 @@ main {
   width: 100%;
   height: auto;
   display: block;
+}
+
+.pfp {
+  width: var(--pfp-size);
+  height: var(--pfp-size);
+  border-radius: 50%;
+  border: 2px solid #9090e9;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 596px) {
@@ -188,5 +185,14 @@ main {
 
   .form-wrapper h1, h2, h3 {
     font-size: var(--font-size-desktop);
+  }
+
+  .pfp {
+    width: var(--pfp-size-desktop);
+    height: var(--pfp-size-desktop);
+  }
+
+  .postcontainer {
+    width: 100%;
   }
 }

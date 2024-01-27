@@ -1,5 +1,8 @@
-<div class="square" id="pfp">
-    <img src="https://picsum.photos/id/0/367/267" alt="">
+<div class="pfp">
+    <div class="image-container">
+        <!-- <img src="https://jooinn.com/images/lonely-tree-reflection-3.jpg" alt=""> -->
+        <img src="https://wallpaperaccess.com/full/1642272.jpg" alt="">
+    </div>
 </div>
 
 <div class="text-wrap">
@@ -16,18 +19,18 @@
         <div class="image-container">
             <img src="uploads/wickedAD.jpg" alt="Post Image">
         </div>
-        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate in necessitatibus voluptas? Cum, et a. Alias dolores molestiae eligendi sunt?</p>
     </div>
     <div class="post">
         <div class="image-container">
             <img src="uploads/flowers.jpg" alt="Post Image">
         </div>
-        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quidem voluptatem quaerat suscipit deleniti aut!</p>
     </div>
     <div class="post">
         <div class="image-container">
             <img src="uploads/elphaba.jpg" alt="Post Image">
         </div>
-        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia magni illum alias accusamus, saepe iure sit doloremque porro.</p>
     </div>
 </div>
