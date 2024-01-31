@@ -8,5 +8,10 @@
 
         <input type="submit" value="Login">
     </form>
+    <?php if (isset($templateParams["loginerror"])) : ?>
+        <div class="error" role="alert" aria-live="assertive">
+            <p><?php echo $templateParams["loginerror"] ?></p>
+        </div>
+    <?php endif; ?>
     <p>Not registered? <a href="registration.php">Register here</a></p>
 </div>

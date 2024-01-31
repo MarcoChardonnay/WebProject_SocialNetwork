@@ -11,7 +11,7 @@
   --pfp-size-desktop: 14rem;
 }
 
-* {
+html {
   font-family: 'Noto Sans', sans-serif;
   color: var(--text-color);
   /* border: 1px solid red; */
@@ -52,6 +52,7 @@ nav li a{
 .icon {
   font-size: var(--icon-size);
   text-decoration: none;
+  color: var(--text-color);
 }
 
 .nav-text {
@@ -159,6 +160,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
 }
 
 @media (min-width: 596px) {

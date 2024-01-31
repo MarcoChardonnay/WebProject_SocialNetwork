@@ -3,11 +3,7 @@
 session_start();
 define("UPLOAD_DIR", "./resources/img/");
 require_once('db/database.php');
-
-function isUserLoggedIn(){
-    //var_dump($_SESSION);
-    return isset($_SESSION['ID_user']);
-}
+require_once('utils/functions.php');
 
 $dbHelper = new DatabaseHelper("localhost","root","","socialnetwork");
 ?>
