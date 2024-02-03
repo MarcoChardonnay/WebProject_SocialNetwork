@@ -8,6 +8,15 @@ if(!isUserLoggedIn()){
 }
 
 //echo "home.php"; for debugging purposes
-echo ("<p style='font-size:3em'>This is the home page</p>");
-echo "User ID: " . $_SESSION['ID_user'];
+echo "This is the home page</p>";
+echo "User ID: " . $_SESSION['ID_user'] . "</p>";
+?>
+
+<?php
+// Base params
+$templateParams['title'] = 'Home';
+// $templateParams['fileName'] = '';
+//$templateParams['scriptFileName'] = '';
+
+require_once 'template/base.php';
 ?>

@@ -167,6 +167,11 @@ main {
   font-weight: bold;
 }
 
+.success {
+  color: green;
+  font-weight: bold;
+}
+
 @media (min-width: 596px) {
 
   .icon {
