@@ -31,6 +31,6 @@
         <div class="image-container">
             <img src="uploads/elphaba.jpg" alt="Post Image">
         </div>
-        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia magni illum alias accusamus, saepe iure sit doloremque porro.</p>
+        <p class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident quia dicta labore laudantium quidem maiores!</p>
     </div>
 </div>

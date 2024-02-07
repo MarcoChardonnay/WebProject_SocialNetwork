@@ -1,5 +1,5 @@
 <?php
-require_once("bootstrap.php");
+require_once('bootstrap.php');
 
 //redirect to home page if user is logged in
 if(isUserLoggedIn()){
@@ -52,8 +52,9 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
 // Base params
 $templateParams['title'] = 'Registration';
 $templateParams['fileName'] = 'registration_form.php';
+$templateParams['navbar'] = false;
 //$templateParams['scriptFileName'] = '';
 
-require_once 'template/base.php';
+require_once ('template/base.php');
 
 ?>

@@ -9,6 +9,7 @@ if(!isUserLoggedIn()){
 // Base params
 $templateParams['title'] = 'Settings';
 $templateParams['fileName'] = 'settings_form.php';
+$templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';
 
 require_once 'template/base.php';

@@ -1,6 +1,5 @@
 <?php
 function isUserLoggedIn(){
-    // return !empty($_SESSION['test']);
     return isset($_SESSION['ID_user']);
 }
 
@@ -15,6 +14,13 @@ function isEmail($input) {
 function isUsername($input) {
     // Define a pattern for usernames (alphanumeric characters and underscores)
     $pattern = '/^[a-zA-Z0-9_]+$/';
+    return preg_match($pattern, $input);
+}
+
+//! NOT TESTED
+function isPassword($input) {
+    // Define a pattern for passwords (alphanumeric characters, underscores, and special characters)
+    $pattern = '/^[a-zA-Z0-9_!@#$%^&*()]+$/';
     return preg_match($pattern, $input);
 }
 

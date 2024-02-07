@@ -10,7 +10,7 @@ if(!isUserLoggedIn()){
 
 // Base params
 $templateParams['title'] = 'Profile';
-$templateParams['fileName'] = 'profile_pageMock.php';
+$templateParams['fileName'] = 'display_post.php';
 $templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';
 

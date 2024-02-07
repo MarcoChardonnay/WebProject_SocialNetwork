@@ -16,6 +16,7 @@ echo "User ID: " . $_SESSION['ID_user'] . "</p>";
 // Base params
 $templateParams['title'] = 'Home';
 // $templateParams['fileName'] = '';
+$templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';
 
 require_once 'template/base.php';

@@ -59,6 +59,11 @@ nav li a{
   display: none;
 }
 
+.spacer {
+  display: block;
+  padding: var(--icon-size) 0 var(--icon-size) 0;
+}
+
 main {
   padding: 0;
   margin: 0;
@@ -98,9 +103,21 @@ main {
 .form input[type="submit"] {
   font-size: var(--font-size);
   padding: 10px;
+  margin-top: 15px;
   background-color: var(--text-color);
   color: var(--background-color);
   border-radius: 25px;
+}
+
+#descrtext {
+  width: 100%; /* Take up the full width of its container */
+  height: 200px; /* Set a default height */
+  resize: vertical; /* Allow vertical resizing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  padding: 10px; /* Add padding to the textarea */
+  font-size: 16px; /* Set font size */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
 }
 
 .postcontainer {

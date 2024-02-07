@@ -38,6 +38,25 @@ class DatabaseHelper{
     }
 
     /**
+     * Function to get the username from the ID_user
+     * @param int $IDuser The ID of the user
+     * @return string The username of the user
+     * @return null if the user doesn't exist
+     */
+    public function getUsername(int $IDuser):?string{
+        $query = "SELECT username FROM users WHERE ID_user = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i",$IDuser);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if($result->num_rows == 0){
+            return null;
+        }
+        $row = $result->fetch_assoc();
+        return $row['username'];
+    }
+
+    /**
         * Function to get the ID_user from the email
         * @param string $email The email of the user
         * @return int The ID of the user, -1 if the user doesn't exist
@@ -81,16 +100,58 @@ class DatabaseHelper{
         * @return bool True if the registration is successful, false otherwise
         */
     public function registerUser(string $username, string $password, string $email, int $notification, string $profile_picture):bool{
-        $successfull = false;
+        $successful = false;
         $hashedPassword = password_hash($password,PASSWORD_DEFAULT);
         $query = "INSERT INTO users (username, password, email, notification, profile_picture) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sssis",$username,$hashedPassword,$email,$notification,$profile_picture);
         if($stmt->execute()){
-            $successfull = true;
+            $successful = true;
         }
-        return $successfull;
+        return $successful;
     }
+
+    /**
+     * Function to insert a new post in the db
+     * @param int $IDuser The ID of the user that made the post
+     * @param string $description The description of the post
+     * TODO: img of the post
+     * @return bool True if the post is inserted, false otherwise
+     * Remember to sanitize the description after retrieving from the database
+     */
+    public function insertPost(int $IDuser, string $description):bool{
+        $img = "default.jpg";
+        $currentDateTime = date("Y-m-d H:i:s");
+        $successful = false;
+        $query = "INSERT INTO posts (img, imgdescription, datetime, k_user) VALUES (?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssi",$img,$description,$currentDateTime,$IDuser);
+        if($stmt->execute()){
+            $successful = true;
+        }
+        return $successful;
+    }
+
+    /*
+                Ultimi 10 post degli utenti seguiti da logged user
+    $query =    SELECT posts.*
+                FROM posts, users, follows
+                WHERE follows.k_user = users.ID_user AND follows.k_following = posts.k_user AND users.id_user = $idusersessione
+                ORDER BY posts.datetime ASC / DESC
+                LIMIT 10;
+
+                Tutti gli utenti seguiti da logged user
+    $query =    SELECT k_following
+                FROM follows
+                WHERE k_user = $idusersessione
+                ORDER BY datetime ASC / DESC
+
+                Tutti i post di un utente
+    $query =    SELECT posts.*
+                FROM posts, users
+                WHERE users.id_user = $idusersessione AND posts.k_user = users.id_user
+                ORDER BY posts.datetime ASC / DESC
+    */
 
     /**
      * Destructor for DatabaseHelper class
