@@ -15,7 +15,7 @@ $retrievedPosts = $dbHelper->getPostsByID($_SESSION['ID_user']);
 
 // Base params
 $templateParams['title'] = 'Profile';
-$templateParams['fileName'] = 'profile_pageMock.php';
+$templateParams['fileName'] = 'profile_page.php';
 $templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';
 
