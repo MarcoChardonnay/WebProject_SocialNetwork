@@ -8,6 +8,11 @@ if(!isUserLoggedIn()){
     header("Location: login.php");
 }
 
+//get user data
+$user = $dbHelper->getUserInfo($_SESSION['ID_user']);
+//retrieve posts by user ID
+$retrievedPosts = $dbHelper->getPostsByID($_SESSION['ID_user']);
+
 // Base params
 $templateParams['title'] = 'Profile';
 $templateParams['fileName'] = 'profile_pageMock.php';

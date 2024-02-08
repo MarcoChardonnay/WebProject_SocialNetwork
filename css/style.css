@@ -11,10 +11,13 @@
   --pfp-size-desktop: 14rem;
 }
 
+* {
+  border: 1px solid red;
+}
+
 html {
   font-family: 'Noto Sans', sans-serif;
   color: var(--text-color);
-  /* border: 1px solid red; */
 }
 
 body {
@@ -110,12 +113,13 @@ main {
 }
 
 #descrtext {
-  width: 100%; /* Take up the full width of its container */
-  height: 200px; /* Set a default height */
+  font-family: 'Noto Sans', sans-serif;
+  width: 100%;
+  height: 200px;
   resize: vertical; /* Allow vertical resizing */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  padding: 10px; /* Add padding to the textarea */
-  font-size: 16px; /* Set font size */
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: var(--font-size);
   border: 1px solid var(--border-color);
   border-radius: 12px;
 }
@@ -189,7 +193,7 @@ main {
   font-weight: bold;
 }
 
-@media (min-width: 596px) {
+@media (min-width: 769px) { /*596px*/
 
   .icon {
     font-size: var(--icon-size-desktop);
@@ -222,5 +226,10 @@ main {
 
   .postcontainer {
     width: 100%;
+  }
+
+  #descrtext {
+    font-size: var(--font-size-desktop);
+    height: 150px;
   }
 }

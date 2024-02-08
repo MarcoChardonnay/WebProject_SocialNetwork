@@ -9,8 +9,9 @@ if(isUserLoggedIn()){
 //if registration form is submitted
 if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirmpass']) && isset($_POST['email'])){
     //save variables
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = trim($_POST['username']);
+    $username = "@" . $username;
+    $password = trim($_POST['password']);
     $password2 = $_POST['confirmpass'];
     $email = $_POST['email'];
     if(isset($_POST['notification'])){

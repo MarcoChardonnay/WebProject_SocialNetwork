@@ -1,26 +1,28 @@
 <div class="form-wrapper">
     <h1>Here you can modify your profile informations</h1>
     <form class="form" action="registration.php" method="POST">
-        <h2>Old username:</h2>
-        <label for="username">Username:</label>
+        <h2>Your username: <?php echo $user['username']; ?> </h2>
+        <label for="username">New Username:</label>
         <input type="text" id="username" name="username" required><br><br>
 
-        <h2>Old password:</h2>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+        <label for="oldpassword">Current Password:</label>
+        <input type="password" id="oldpassword" name="oldpassword" required><br><br>
 
-        <label for="confirmpass">Confirm New Password</label>
-        <input type="password" id="confirmpass" name="confirmpass">
+        <label for="newpassword">New Password:</label>
+        <input type="password" id="newpassword" name="newpassword" required><br><br>
 
-        <h2>Old email:</h2>
-        <label for="email">Email:</label>
+        <label for="confirmnewpass">Confirm New Password</label>
+        <input type="password" id="confirmnewpass" name="confirmnewpass">
+
+        <h2>Your email: <?php echo $user['email']; ?></h2>
+        <label for="email">New Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
-        <h2>Old phone:</h2>
-        <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
-
-        <h2>Previous setting:</h2>
+        <h2>Previous setting:
+            <?php
+            echo "Notifications " . (($user['username'] == 0) ? "enabled" : "disabled");
+            ?>
+        </h2>
         <label for="notification">Receive Notifications:</label>
         <input type="checkbox" id="notification" name="notification" value="1" required><br><br>
 

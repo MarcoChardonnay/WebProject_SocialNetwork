@@ -6,6 +6,9 @@ if(!isUserLoggedIn()){
     header("Location: login.php");
 }
 
+//get user data
+$user = $dbHelper->getUserInfo($_SESSION['ID_user']);
+
 // Base params
 $templateParams['title'] = 'Settings';
 $templateParams['fileName'] = 'settings_form.php';

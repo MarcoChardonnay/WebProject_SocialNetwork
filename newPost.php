@@ -9,13 +9,15 @@ if (!isUserLoggedIn()) {
 //if new post form is submitted
 if (isset($_POST['descrtext'])) {
     //save variable
-    $description = $_POST['descrtext'];
+    $description = trim($_POST['descrtext']);
     $IDuser = $_SESSION['ID_user'];
     if (strlen($description) < 255) {
     //insert post in db
     if($dbHelper->insertPost($IDuser, $description)){
         //post successful
         $templateParams["postsuccess"] = "The post added successfully";
+        //reload page
+        header("refresh:5;url=newPost.php");
     }else{
         //post failed
         $templateParams["posterror"] = "The post failed";
