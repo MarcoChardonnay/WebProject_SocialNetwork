@@ -26,7 +26,7 @@ class DatabaseHelper
      * @param string $username The username of the user
      * @return int The ID of the user, -1 if the user doesn't exist
      */
-    public function getID_userbyUsername(string $username): int
+    public function getIDuserbyUsername(string $username): int
     {
         $query = "SELECT ID_user FROM users WHERE username = ?";
         $stmt = $this->db->prepare($query);
@@ -65,7 +65,7 @@ class DatabaseHelper
      * @param string $email The email of the user
      * @return int The ID of the user, -1 if the user doesn't exist
      */
-    public function getID_userbyEmail(string $email): int
+    public function getIDuserbyEmail(string $email): int
     {
         $query = "SELECT ID_user FROM users WHERE email = ?";
         $stmt = $this->db->prepare($query);

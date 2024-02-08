@@ -17,7 +17,7 @@ if (isset($_POST['descrtext'])) {
         //post successful
         $templateParams["postsuccess"] = "The post added successfully";
         //reload page
-        header("refresh:5;url=newPost.php");
+        header("refresh:2;url=newPost.php");
     }else{
         //post failed
         $templateParams["posterror"] = "The post failed";
