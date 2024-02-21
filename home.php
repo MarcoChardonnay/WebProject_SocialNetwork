@@ -3,19 +3,15 @@ require_once("bootstrap.php");
 
 //redirect to login page if user is not logged in
 if(!isUserLoggedIn()){
-    echo "User is not logged in";
     header("Location: login.php");
 }
 
-//echo "home.php"; for debugging purposes
-echo "This is the home page</p>";
-echo "User ID: " . $_SESSION['ID_user'] . "</p>";
-?>
+//retrieve latest n posts from users followed by the logged in user
+$retrievedPosts = $dbHelper->getPostsFollowed($_SESSION['ID_user'], 10);
 
-<?php
 // Base params
 $templateParams['title'] = 'Home';
-// $templateParams['fileName'] = '';
+$templateParams['fileName'] = 'home_page.php';
 $templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';
 

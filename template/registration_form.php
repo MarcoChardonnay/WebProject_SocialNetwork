@@ -1,8 +1,8 @@
 <div class="form-wrapper">
     <form class="form" action="registration.php" method="POST">
         <label for="username">Username:</label>
-        <label for="username">The accepted characters are letters, numbers and underscores</label>
-        <input type="text" id="username" name="username" pattern="/^[a-zA-Z0-9_]+$/" required><br><br>
+        <label for="username">The accepted characters are letters, numbers, period and underscores</label>
+        <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_.]+" title="only alphanumeric characters underscores[_] and periods[.]" required><br><br>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
@@ -21,6 +21,7 @@
 
         <input type="submit" value="Register">
     </form>
+    <p>Already registered? <a href="login.php">Go to login</a></p>
     <?php if (isset($templateParams["registrationerror"])) : ?>
         <div class="error" role="alert" aria-live="assertive">
             <p><?php echo $templateParams["registrationerror"] ?></p>

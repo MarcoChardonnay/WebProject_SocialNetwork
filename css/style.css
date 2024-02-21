@@ -11,9 +11,9 @@
   --pfp-size-desktop: 14rem;
 }
 
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 html {
   font-family: 'Noto Sans', sans-serif;

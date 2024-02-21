@@ -162,7 +162,25 @@ class DatabaseHelper
     */
     public function getPostsByID(int $ID_user): array
     {
-        $query = "SELECT posts.* FROM posts, users WHERE users.id_user = $ID_user AND posts.k_user = users.id_user ORDER BY posts.datetime";
+        $query = "SELECT posts.* FROM posts, users WHERE users.id_user = $ID_user AND posts.k_user = users.id_user ORDER BY posts.datetime DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //!: NOT TESTED
+    /**
+        * Function to get the last N posts of the users followed by the logged user
+        * @param int $ID_user The ID of the user
+        * @param int $limit The number of posts to retrieve
+        * @return array of array The posts of the users followed by the logged user
+    */
+    public function getPostsFollowed(int $ID_user, int $limit): array
+    {
+        $query = "SELECT posts.* FROM posts, users, follows
+                WHERE follows.k_user = users.ID_user AND follows.k_following = posts.k_user AND users.id_user = $ID_user
+                ORDER BY posts.datetime DESC LIMIT $limit";
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();

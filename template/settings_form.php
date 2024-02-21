@@ -1,3 +1,8 @@
+<!-- logout button when pressed calls logout() function -->
+<div class="logout">
+    <input type="button" value="Logout" onclick="logout();">
+</div>
+<!-- settings form -->
 <div class="form-wrapper">
     <h1>Here you can modify your profile informations</h1>
     <form class="form" action="registration.php" method="POST">

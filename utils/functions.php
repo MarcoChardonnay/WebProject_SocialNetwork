@@ -7,6 +7,10 @@ function registerLoggedUser(int $IDuser){
     $_SESSION['ID_user'] = $IDuser;
 }
 
+function logout(){
+    session_destroy();
+}
+
 function isEmail($input) {
     return filter_var($input, FILTER_VALIDATE_EMAIL);
 }

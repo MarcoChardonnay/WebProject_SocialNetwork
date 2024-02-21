@@ -10,9 +10,14 @@ if(isUserLoggedIn()){
 if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirmpass']) && isset($_POST['email'])){
     //save variables
     $username = trim($_POST['username']);
-    $username = "@" . $username;
     $password = trim($_POST['password']);
-    $password2 = $_POST['confirmpass'];
+    if(isPassword($password) == 0){
+        $templateParams["registrationerror"] = "The password format is not valid";
+    }
+    $password2 = trim($_POST['confirmpass']);
+    if(isPassword($password2) == 0){
+        $templateParams["registrationerror"] = "The password format for the confirmation is not valid";
+    }
     $email = $_POST['email'];
     if(isset($_POST['notification'])){
         $notification = $_POST['notification'];
