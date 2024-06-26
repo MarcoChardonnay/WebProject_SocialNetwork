@@ -112,6 +112,19 @@ main {
   border-radius: 25px;
 }
 
+.logout {
+  font-size: var(--font-size);
+  padding: 10px;
+  margin-top: 15px;
+  background-color: var(--background-color);
+  border-radius: 25px;
+}
+
+.logout a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
 #descrtext {
   font-family: 'Noto Sans', sans-serif;
   width: 100%;

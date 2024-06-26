@@ -7,7 +7,7 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <label for="confirmpass">Confirm Password</label>
+        <label for="confirmpass">Confirm Password:</label>
         <input type="password" id="confirmpass" name="confirmpass"><br><br>
 
         <label for="email">Email:</label>

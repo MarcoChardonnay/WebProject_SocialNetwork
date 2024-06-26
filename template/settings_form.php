@@ -1,6 +1,6 @@
-<!-- logout button when pressed calls logout() function -->
+<!-- logout button -->
 <div class="logout">
-    <input type="button" value="Logout" onclick="logout();">
+    <a href="logout.php">Logout</a>
 </div>
 <!-- settings form -->
 <div class="form-wrapper">

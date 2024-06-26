@@ -8,7 +8,11 @@ function registerLoggedUser(int $IDuser){
 }
 
 function logout(){
-    session_destroy();
+    if(session_destroy()){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function isEmail($input) {
