@@ -1,17 +1,29 @@
-<div class="post">
-    <div class="post-header">
-        <p class="username"></p>
-    </div>
-    <div class="post-body">
-        <img src="" alt="">
-        <div class="image-container">
-            <img src="" alt="">
+<div class="postcontainer">
+    <div class="post">
+        <div class="userhandle">
+            <p><?php echo $post['k_user']; ?></p>
         </div>
-    </div>
-    <div class="post-footer">
-        <ul>
-            <li><span id="heart-icon" class="fa-regular fa-heart"></span></li> <!-- fa-solid fa-heart when liked --> <!-- do i need an aria? -->
-            <li><span class="icon fa-light fa-house"></span></li>
-        </ul>
+        <div class="image-container">
+            <!-- <img src="<?php echo UPLOAD_DIR . $post['img']; ?>" alt="Post Image"> -->
+        </div>
+        <div class="description">
+            <p><?php echo $post['imgdescription']; ?></p>
+        </div>
+        <div class="footer">
+            <ul>
+                <li>
+                    <p><?php echo $post['datetime'] ?></p>
+                </li>
+                <li>
+                    <span id="heart-icon" class="icon fa-regular fa-heart"></span>
+                    <span class="nav-text">Likes</span>
+                </li> <!-- fa-solid fa-heart when liked --> <!-- do i need an aria? -->
+                <li>
+                    <a href="home.php" class="icon-link">
+                        <span class="icon fa-light fa-house"></span>
+                        <span class="">back to Home</span>
+                    </a>
+                </li>
+        </div>
     </div>
 </div>

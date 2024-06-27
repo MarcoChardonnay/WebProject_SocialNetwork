@@ -8,6 +8,13 @@ if(!isUserLoggedIn()){
     header("Location: login.php");
 }
 
+if (isset($_GET['post'])) {
+    $ID_post = $_GET['post'];
+    $post = $dbHelper->getPostInfo($ID_post);
+}else {
+    //error message
+}
+
 // Base params
 $templateParams['title'] = 'Profile';
 $templateParams['fileName'] = 'display_post.php';

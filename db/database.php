@@ -156,6 +156,21 @@ class DatabaseHelper
     }
 
     /**
+        * Function to get the information of a single post using the ID_post
+        * @param int $ID_post The ID of the post
+        * @return array The information of the post
+    */
+    public function getPostInfo(int $ID_post): array
+    {
+        $query = "SELECT * FROM posts WHERE ID_post = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ID_post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    /**
         * Function to get all the posts of a user using the ID_user
         * @param int $ID_user The ID of the user
         * @return array of array The posts of the user
@@ -169,7 +184,6 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    //!: NOT TESTED
     /**
         * Function to get the last N posts of the users followed by the logged user
         * @param int $ID_user The ID of the user
