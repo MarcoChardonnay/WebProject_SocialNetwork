@@ -20,6 +20,15 @@ class DatabaseHelper
         }
     }
 
+    /**
+     * Function to sanitize a string
+     * @param string $string The string to sanitize
+     * @return string The sanitized string
+     */
+    public function real_escape_string($string) {
+        //real_escape_string() native function, escapes special characters in a string for use in an SQL statement
+        return $this->db->real_escape_string($string);
+    }
 
     /**
      * Function to get the ID_user from the username
@@ -232,15 +241,16 @@ class DatabaseHelper
     }
 
     /**
-     * Function to get X ammount of random users
+     * Function to get X ammount of random users, excluding the logged user
      * @param int $limit The number of users to retrieve
      * @return array of array the users, it returns the ID_user and the username
      * @return null if there are no users
      */
-    public function getRandomUsers(int $limit): ?array
+    public function getRandomUsers(int $limit, int $ID_user): ?array
     {
-        $query = "SELECT ID_user, username FROM users ORDER BY RAND() LIMIT $limit";
+        $query = "SELECT ID_user, username FROM users WHERE ID_user != ? ORDER BY RAND() LIMIT ?";
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $ID_user, $limit);
         $stmt->execute();
         $result = $stmt->get_result();
         if ($result->num_rows == 0) {
@@ -249,26 +259,60 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /*
-                Ultimi 10 post degli utenti seguiti da logged user
-    $query =    SELECT posts.*
-                FROM posts, users, follows
-                WHERE follows.k_user = users.ID_user AND follows.k_following = posts.k_user AND users.id_user = $ID_usersessione
-                ORDER BY posts.datetime ASC / DESC
-                LIMIT 10;
-
-                Tutti gli utenti seguiti da logged user
-    $query =    SELECT k_following
-                FROM follows
-                WHERE k_user = $ID_usersessione
-                ORDER BY datetime ASC / DESC
-
-                Tutti i post di un utente
-    $query =    SELECT posts.*
-                FROM posts, users
-                WHERE users.id_user = $ID_usersessione AND posts.k_user = users.id_user
-                ORDER BY posts.datetime ASC / DESC
+    /**
+        * Function to know if a user is following another user
+        * @param int $ID_user The ID of the user
+        * @param int $ID_following The ID of the user to check if is followed
+        * @return bool True if the user is following the other user, false otherwise
     */
+    public function isFollowing(int $ID_user, int $ID_following): bool
+    {
+        $query = "SELECT * FROM follows WHERE k_user = ? AND k_following = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $ID_user, $ID_following);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;  //row found -> true, row not found -> false
+    }
+
+    /**
+        * Function to follow or unfollow a user
+        * @param int $ID_user The ID of the user
+        * @param int $ID_following The ID of the user to follow or unfollow
+        * @param bool $follow True ID_user is following ID_following, False ID_user is unfollowing ID_following
+        * the function will swap the follow status
+        * @return bool True if the operation is successful, false otherwise
+    */
+    public function toggleFollow(int $ID_user, int $ID_following, bool $follow): bool
+    {
+        if($follow){
+            //ID_user is following ID_following, so we need to unfollow
+            $query = "DELETE FROM follows WHERE k_user = ? AND k_following = ?";
+        } else {
+            //ID_user is not following ID_following, so we need to follow
+            $query = "INSERT INTO follows (k_user, k_following) VALUES (?, ?)";
+        }
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $ID_user, $ID_following);
+        return $stmt->execute();
+    }
+
+    /**
+     * Function to search for usernames
+     * @param string $query The query to search for
+     * @return array of array The usernames that match the query
+     */
+    public function searchUsernames($query) {
+        $sql = "SELECT username FROM users WHERE username LIKE ?";
+        $stmt = $this->db->prepare($sql);
+        $query = "%$query%";
+        $stmt->bind_param("s", $query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $users = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        return $users;
+    }
 
     /**
      * Destructor for DatabaseHelper class

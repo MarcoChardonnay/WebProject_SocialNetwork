@@ -1,8 +1,18 @@
 <?php
 require_once('dbinit.php');
 
-//redirect to home page if user is logged in
-if (isUserLoggedIn()) {
-    header("Location: home.php");
+//get random users
+$randomUsers = $dbHelper->getRandomUsers(10, $_SESSION['ID_user']);
+// var_dump($randomUsers); echo "<br>";
+foreach ($randomUsers as &$user) {
+    $user['following'] = $dbHelper->isFollowing($_SESSION['ID_user'], $user['ID_user']);
 }
+// var_dump($randomUsers); echo "<br>";
+// Base params
+$templateParams['title'] = 'Search';
+$templateParams['fileName'] = 'search_field.php';
+$templateParams['navbar'] = true;
+$templateParams['jsFile'] = array('search.js');
+
+require_once ('template/base.php');
 ?>

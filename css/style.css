@@ -13,10 +13,9 @@
   --text-color-light: hsla(325, 32%, 25%, 0.6);
   --border-color: hsl(300, 33%, 47%);
   --icon-size: 35px;
-  --icon-size-desktop: 35px;
+  --icon-size-desktop: calc(var(--icon-size) + 5px);
   --font-size-base-desktop: 1.5rem;
-  --pfp-size: 8rem;
-  --pfp-size-desktop: 14rem;
+  --font-size-sub: 1rem;
 }
 
 /* * {
@@ -72,7 +71,7 @@ nav li a{
 
 .spacer {
   display: block;
-  padding: calc(var(--icon-size) / 2) 0 calc(var(--icon-size) / 2) 0;
+  padding-top: var(--icon-size) 0 var(--icon-size) 0;
 }
 
 main {
@@ -157,7 +156,7 @@ main {
   text-decoration: none;
 }
 
-#descrtext {
+#descrtext { /* Textarea for new post*/
   font-family: 'Noto Sans', sans-serif;
   width: 100%;
   height: 200px;
@@ -207,6 +206,22 @@ main {
   padding: 15px;
 }
 
+.userscontainer {
+  width: 85%;
+}
+
+.userscontainer ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.userscontainer ul li{
+  font-size: var(--font-size-base);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .error {
   color: red;
   font-weight: bold;
@@ -237,7 +252,7 @@ main {
 
   .spacer {
     display: block;
-    padding: calc(var(--icon-size-desktop) / 2) 0 calc(var(--icon-size-desktop) / 2) 0;
+    padding-top: var(--icon-size-desktop) 0 var(--icon-size-desktop) 0;
   }
 
   .form-wrapper {
@@ -248,17 +263,20 @@ main {
     font-size: var(--font-size-base-desktop);
   }
 
-  .pfp {
-    width: var(--pfp-size-desktop);
-    height: var(--pfp-size-desktop);
-  }
-
   .postcontainer {
     width: 100%;
   }
 
   #descrtext {
     font-size: var(--font-size-base-desktop);
-    height: 150px;
+    height: 350px;
+  }
+
+  .userscontainer {
+    width: 50%;
+  }
+
+  .userscontainer ul li{
+    font-size: var(--font-size-base-desktop);
   }
 }

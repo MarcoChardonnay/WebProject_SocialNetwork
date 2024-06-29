@@ -61,10 +61,16 @@
                         <span class="nav-text">Notifications</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="settings.php">
                         <span class="icon fa-regular fa-sliders"></span>
                         <span class="nav-text">Settings</span>
+                    </a>
+                </li> -->
+                <li>
+                    <a href="logout.php">
+                        <span class="icon fa-solid fa-arrow-right-from-bracket"></span>
+                        <span class="nav-text">Logout</span>
                     </a>
                 </li>
             </ul>

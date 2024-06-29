@@ -28,7 +28,7 @@ function isUsername($input) {
 //! NOT TESTED
 function isPassword($input) {
     // Define a pattern for passwords (alphanumeric characters, underscores, and special characters)
-    $pattern = '/^[a-zA-Z0-9_!@#$%^&*()]+$/';
+    $pattern = '/^[a-zA-Z0-9!@#$%&*]+$/';
     return preg_match($pattern, $input);
 }
 

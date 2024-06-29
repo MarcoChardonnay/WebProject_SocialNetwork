@@ -9,7 +9,7 @@
             <li>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required><br>
-                <span id="passwordHelp" class="form-descr">Use letters, numbers, and special characters only. For example: password123!.</span>
+                <span id="passwordHelp" class="form-descr">Use letters, numbers, and special characters (allowed: !@#$%&*). For example: password123!.</span>
             </li>
             <li>
                 <label for="confirmpass">Confirm Password:</label>
