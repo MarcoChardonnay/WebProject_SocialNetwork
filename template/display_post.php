@@ -3,16 +3,13 @@
         <div class="userhandle">
             <p><?php echo $post['k_user']; ?></p>
         </div>
-        <div class="image-container">
-            <!-- <img src="<?php echo UPLOAD_DIR . $post['img']; ?>" alt="Post Image"> -->
-        </div>
         <div class="description">
-            <p><?php echo $post['imgdescription']; ?></p>
+            <p><?php echo $post['description']; ?></p>
         </div>
         <div class="footer">
             <ul>
                 <li>
-                    <p><?php echo $post['datetime'] ?></p>
+                    <p>posted on <?php echo $post['datetime'] ?></p>
                 </li>
                 <li>
                     <span id="heart-icon" class="icon fa-regular fa-heart"></span>

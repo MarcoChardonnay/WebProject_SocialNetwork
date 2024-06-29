@@ -1,12 +1,20 @@
+<h1 class="webname">Calliope</h1>
+<h2 class="websubtitle">Are you a tortured poet? Share your best verses with the community</h2>
 <div class="form-wrapper">
     <form class="form" action="login.php" method="POST">
-        <label for="username">Username or Email:</label>
-        <input type="text" id="loginInput" name="loginInput" required><br><br>
-
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <input type="submit" value="Login">
+        <ul>
+            <li>
+                <label for="username">Username or Email:</label>
+                <input type="text" id="loginInput" name="loginInput" required>
+            </li>
+            <li>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </li>
+            <li>
+                <input type="submit" value="Login">
+            </li>
+        </ul>
     </form>
     <?php if (isset($templateParams["loginerror"])) : ?>
         <div class="error" role="alert" aria-live="assertive">

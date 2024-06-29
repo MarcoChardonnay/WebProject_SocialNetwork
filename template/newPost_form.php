@@ -1,12 +1,9 @@
 <div class="form-wrapper">
     <form class="form" action="newPost.php" method="POST">
-        <label for="image">Post image:</label>
-        <input type="text" id="image" name="image" required><br><br>
 
-        <label for="descrtext">Description:</label>
-        <!-- <input type="text" id="description" name="description" required><br><br> -->
-        <textarea id="descrtext" name="descrtext" rows="4" cols="50" required></textarea><br>
-        <span id="counter">0/255</span><br>
+        <label for="descrtext">Unleash your creativity:</label>
+        <textarea id="descrtext" name="descrtext" rows="4" cols="50" required></textarea>
+        <span id="counter">0/1500</span>
 
         <input type="submit" value="Add new post">
     </form>

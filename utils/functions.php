@@ -32,4 +32,28 @@ function isPassword($input) {
     return preg_match($pattern, $input);
 }
 
+function timeAgo($datetime) {
+    $now = new DateTime();
+    $posted = new DateTime($datetime);
+    $diff = $now->diff($posted);
+
+    if ($diff->y > 0) {
+        return $diff->y . 'y ago';
+    } elseif ($diff->m > 0) {
+        return $diff->m . 'm ago';
+    } elseif ($diff->d > 0) {
+        return $diff->d . 'd ago';
+    } elseif ($diff->h > 0) {
+        return $diff->h . 'h ago';
+    } elseif ($diff->i > 0) {
+        return $diff->i . 'min ago';
+    } else {
+        return 'just now';
+    }
+}
+
+// Example usage
+//echo timeAgo('2024-06-27 08:00:00');
+
+
 ?>

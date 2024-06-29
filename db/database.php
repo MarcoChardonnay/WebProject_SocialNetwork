@@ -105,13 +105,13 @@ class DatabaseHelper
      * @param string $profile_picture The profile picture of the user
      * @return bool True if the registration is successful, false otherwise
      */
-    public function registerUser(string $username, string $password, string $email, int $notification, string $profile_picture): bool
+    public function registerUser(string $username, string $password, string $email, int $notification): bool
     {
         $successful = false;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (username, password, email, notification, profile_picture) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO users (username, password, email, notification) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssis", $username, $hashedPassword, $email, $notification, $profile_picture);
+        $stmt->bind_param("sssi", $username, $hashedPassword, $email, $notification);
         if ($stmt->execute()) {
             $successful = true;
         }
@@ -125,7 +125,7 @@ class DatabaseHelper
      */
     public function getUserInfo(int $ID_user): array
     {
-        $query = "SELECT `username`, `password`, `email`, `notification`, `profile_picture` FROM `users` WHERE `ID_user` = ?";
+        $query = "SELECT `ID_user`, `username`, `password`, `email`, `notification` FROM `users` WHERE `ID_user` = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $ID_user);
         $stmt->execute();
@@ -137,18 +137,16 @@ class DatabaseHelper
      * Function to insert a new post in the db
      * @param int $ID_user The ID of the user that made the post
      * @param string $description The description of the post
-     * TODO: img of the post
      * @return bool True if the post is inserted, false otherwise
      * Remember to sanitize the description after retrieving from the database
      */
     public function insertPost(int $ID_user, string $description): bool
     {
-        $img = "default.jpg";
         $currentDateTime = date("Y-m-d H:i:s");
         $successful = false;
-        $query = "INSERT INTO posts (img, imgdescription, datetime, k_user) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO posts (description, datetime, k_user) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssi", $img, $description, $currentDateTime, $ID_user);
+        $stmt->bind_param("ssi", $description, $currentDateTime, $ID_user);
         if ($stmt->execute()) {
             $successful = true;
         }
@@ -198,6 +196,56 @@ class DatabaseHelper
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Function to get the number of followers (accounts that are following the user)
+     * @param int $ID_user The ID of the user
+     * @return int The number of followers of the user
+     */
+    public function getFollowers(int $ID_user): int
+    {
+        $query = "SELECT COUNT(*) FROM follows WHERE k_following = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ID_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['COUNT(*)'];
+    }
+
+    /**
+     * Function to get the number of following (accounts followed by a user)
+     * @param int $ID_user The ID of the user
+     * @return int The number of following of the user
+     */
+    public function getFollowing(int $ID_user): int
+    {
+        $query = "SELECT COUNT(*) FROM follows WHERE k_user = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ID_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row['COUNT(*)'];
+    }
+
+    /**
+     * Function to get X ammount of random users
+     * @param int $limit The number of users to retrieve
+     * @return array of array the users, it returns the ID_user and the username
+     * @return null if there are no users
+     */
+    public function getRandomUsers(int $limit): ?array
+    {
+        $query = "SELECT ID_user, username FROM users ORDER BY RAND() LIMIT $limit";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows == 0) {
+            return null;
+        }
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
