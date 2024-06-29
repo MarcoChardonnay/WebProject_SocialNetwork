@@ -1,17 +1,12 @@
 <?php
-require_once('bootstrap.php');
-
-//redirect to home page if user is logged in
-if (!isUserLoggedIn()) {
-    header("Location: login.php");
-}
+require_once('dbinit.php');
 
 //if new post form is submitted
 if (isset($_POST['descrtext'])) {
     //save variable
     $description = trim($_POST['descrtext']);
     $IDuser = $_SESSION['ID_user'];
-    if (strlen($description) < 255) {
+    if (strlen($description) < 1500) {
     //insert post in db
     if($dbHelper->insertPost($IDuser, $description)){
         //post successful

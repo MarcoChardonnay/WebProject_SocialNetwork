@@ -1,10 +1,5 @@
 <?php
-require_once("bootstrap.php");
-
-//redirect to home page if user is logged in
-if(!isUserLoggedIn()){
-    header("Location: login.php");
-}
+require_once("dbinit.php");
 
 //get user data
 $user = $dbHelper->getUserInfo($_SESSION['ID_user']);

@@ -1,5 +1,5 @@
 <?php
-require_once('bootstrap.php');
+require_once('dbinit.php');
 
 //redirect to home page if user is logged in
 if(isUserLoggedIn()){
@@ -25,13 +25,6 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
     else{
         $notification = 0;
     }
-    if(isset($_POST['profile_picture'])){
-        //profile picture
-        $profile_picture = "default.jpg";
-    }
-    else{
-        $profile_picture = "default.jpg";
-    }
     //check if user exists
     $IDuser = $dbHelper->getIDuserbyUsername($username);
     if($IDuser != -1){    //username found
@@ -43,7 +36,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
     }
     else{
         //register user
-        if($dbHelper->registerUser($username, $password, $email, $notification, $profile_picture)){
+        if($dbHelper->registerUser($username, $password, $email, $notification)){
             //registration successful
             $templateParams["registrationsuccess"] = "The registration was successful, you will be redirected to the login page in 5 seconds. If not, click <a href='login.php'>here</a>";
             header("refresh:5;url=login.php");
@@ -59,7 +52,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
 $templateParams['title'] = 'Registration';
 $templateParams['fileName'] = 'registration_form.php';
 $templateParams['navbar'] = false;
-//$templateParams['scriptFileName'] = '';
+$templateParams['scriptFileName'] = 'registrationPatterns.js';
 
 require_once ('template/base.php');
 

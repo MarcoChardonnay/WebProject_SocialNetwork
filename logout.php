@@ -1,9 +1,5 @@
 <?php
-require_once("bootstrap.php");
-
-if(!isUserLoggedIn()){
-    header("Location: login.php");
-}
+require_once("dbinit.php");
 
 if(logout()){
     header("Location: login.php");
