@@ -10,6 +10,7 @@
     <!-- css -->
     <link rel='stylesheet' type='text/css' href='css/style.css'>
     <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 
     <!-- navbar icons -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.1/css/all.css">
@@ -31,24 +32,20 @@
             <ul>
                 <li>
                     <a href="home.php">
-                        <span class="icon fa-light fa-house"></span>
+                        <span class="icon fa-regular fa-house"></span>
                         <span class="nav-text">Feed</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="search.php">
                         <span class="icon fa-regular fa-magnifying-glass"></span>
                         <span class="nav-text">Search</span>
                     </a>
                 </li>
-                <!-- <li>
-                <a href="#">
-                    <span class="icon fa-solid fa-heart"></span>
-                    <span class="nav-text">Notifications</span></a>
-            </li> -->
                 <li>
                     <a href="newPost.php">
-                        <span class="icon fa-solid fa-plus"></span>
+                        <!-- <span class="icon fa-solid fa-plus"></span> -->
+                        <span class="icon fa-regular fa-feather"></span>
                         <span class="nav-text">New Post</span>
                     </a>
                 </li>
@@ -59,8 +56,14 @@
                     </a>
                 </li>
                 <li>
+                    <a href="notifications.php">
+                        <span class="icon fa-regular fa-bell"></span>
+                        <span class="nav-text">Notifications</span>
+                    </a>
+                </li>
+                <li>
                     <a href="settings.php">
-                        <span class="icon fa-light fa-sliders"></span>
+                        <span class="icon fa-regular fa-sliders"></span>
                         <span class="nav-text">Settings</span>
                     </a>
                 </li>
