@@ -3,6 +3,7 @@
 <!-- Search works but there's no button to click -->
 
 <div class="userscontainer">
+    <p>Suggested users:</p>
     <ul>
         <?php foreach ($randomUsers as $u) : ?>
             <?php //var_dump($u) ?>
