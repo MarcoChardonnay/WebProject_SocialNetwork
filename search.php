@@ -13,7 +13,7 @@ unset($post); // Break the reference with the last element
 $templateParams['title'] = 'Search';
 $templateParams['fileName'] = 'search_field.php';
 $templateParams['navbar'] = true;
-$templateParams['jsFile'] = array('search.js', 'toggleFollow.js');
+$templateParams['jsFile'] = array('toggleFollow.js');
 
 require_once ('template/base.php');
 ?>

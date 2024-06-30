@@ -1,4 +1,5 @@
 <?php
+//NOT USED
 require_once('dbinit.php');
 
 if(isset($_GET['query'])) {
@@ -25,7 +26,7 @@ if(isset($_GET['query'])) {
         //echo the form with the hidden input
         echo "<form action='javascript:void(0);' method='POST'>";
         echo "<input type='hidden' name='following' value='".$user['following']."'>";
-        echo "<input type='button' class='toggleFollow' value='".($user['following'] ? 'Unfollow' : 'Follow')."' data-user-id='S".$user['ID_user']."'>";
+        echo "<input type='button' class='toggleFollowSearch' value='".($user['following'] ? 'Unfollow' : 'Follow')."' data-user-id='S".$user['ID_user']."'>";
         echo "</form>";
         echo "</li>";
     }

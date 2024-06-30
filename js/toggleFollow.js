@@ -1,11 +1,9 @@
-window.addEventListener('keyup', function(){
+window.addEventListener('load', function(){
     //select all buttons with class toggleFollow, cicle to them
     document.querySelectorAll('.toggleFollow').forEach(button => {
-        console.log(button);
         //add event listener to button
         button.addEventListener('click', function () {
-            const userIdData = this.getAttribute('data-user-id');
-            const userId = Number(userIdData.substring(1)); // Remove the first character X or S from the string
+            const userId = this.getAttribute('data-user-id');
             //check if button text is unfollow which means user is already following -> followStatus = true
             const followStatus = this.value === 'Unfollow';
             //print to console
