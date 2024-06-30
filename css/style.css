@@ -231,6 +231,8 @@ main {
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 10px;
+  padding: 5px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .toggleFollow{
@@ -245,10 +247,6 @@ main {
 
 .notifcontainer {
   width: 90%;
-  margin-top: 20px;
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  box-sizing: border-box;
 }
 
 .toggleReadStatus {
@@ -274,9 +272,14 @@ main {
   padding: 0;
 }
 
-.notifcontainer ul li {
+.notif {
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-sizing: border-box;
   font-size: var(--font-size-base);
-  padding: 0 10px 0 10px;
+  padding: 5px 10px 5px 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -341,12 +344,15 @@ main {
     font-size: var(--font-size-base-desktop);
   }
 
-  .notifcontainer ul li {
+  .notif{
     font-size: var(--font-size-base-desktop);
-    padding: 0 20px 0 20px;
   }
 
   .toggleReadStatus {
     font-size: var(--font-size-base-desktop);
+  }
+
+  .notifcontainer {
+    width: 80%;
   }
 }

@@ -7,7 +7,7 @@ $randomUsers = $dbHelper->getRandomUsers(10, $_SESSION['ID_user']);
 foreach ($randomUsers as &$user) {
     $user['following'] = $dbHelper->isFollowing($_SESSION['ID_user'], $user['ID_user']);
 }
-unset($post); // Break the reference with the last element
+unset($user); // Break the reference with the last element
 // var_dump($randomUsers); echo "<br>";
 // Base params
 $templateParams['title'] = 'Search';

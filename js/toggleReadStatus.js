@@ -12,12 +12,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     console.log(this.responseText);
                     if (isRead) {
                         button.value = 'Mark as Read';
-                        // button.parentElement.classList.remove('read');
-                        // button.parentElement.classList.add('unread');
+                        //TODO: change the background color of the notification
                     } else {
                         button.value = 'Mark as Unread';
-                        // button.parentElement.classList.remove('unread');
-                        // button.parentElement.classList.add('read');
+                        //TODO: change the background color of the notification
                     }
                 }
             };
