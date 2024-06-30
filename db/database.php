@@ -299,6 +299,20 @@ class DatabaseHelper
     }
 
     /**
+     * Function that adds a new notification to the database
+     * @param int $ID_user The ID of the user that will receive the notification
+     * @param string $message The message of the notification
+     * @return bool True if the notification is added, false otherwise
+     */
+    public function addNotification(int $ID_user, string $message): bool
+    {
+        $query = "INSERT INTO notifications (k_user, message) VALUES (?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $ID_user, $message);
+        return $stmt->execute();
+    }
+
+    /**
      * Function to search for usernames excluding the logged user
      * @param string $query The query to search for
      * @param int $ID_user The ID of the logged user to exclude
