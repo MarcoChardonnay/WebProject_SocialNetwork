@@ -13,13 +13,8 @@ if (isset($_POST['ID_user']) && isset($_POST['following'])) {
     // Using toggleFollow to change the database
     $toggleSuccess = $dbHelper->toggleFollow($_SESSION['ID_user'], $_POST['ID_user'], $followStatus);
     // Add a Notification
-    $notifUserTarget = $dbHelper->getUsername($_SESSION['ID_user']);
-    if($followStatus){
-        $message = "user " . $notifUserTarget . " is no longer following you.";
-    } else {
-        $message = "user " . $notifUserTarget . " is now following you.";
-    }
-    $dbHelper->addNotification($_POST['ID_user'], $message);
+    $actionType = $followStatus ? "unfollow" : "follow";
+    $dbHelper->addNotification($_SESSION['ID_user'], $_POST['ID_user'], $actionType);
 
     if ($toggleSuccess) {
         // Return success message or new follow status (opposite of the current one)

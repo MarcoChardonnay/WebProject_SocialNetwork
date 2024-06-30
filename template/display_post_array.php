@@ -26,7 +26,7 @@
                 <p><?php echo $post['k_user']; ?></p>
             </div>
             <p class="description"><?php echo $post['description']; ?></p>
-            <div class="footer">
+            <div class="postfooter">
                 <ul>
                     <li><a href="post_viewer.php?post=<?php echo $post['ID_post']; ?>" class="link">View more</a></li>
                     <li>

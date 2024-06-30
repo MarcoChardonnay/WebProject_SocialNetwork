@@ -110,7 +110,7 @@ main {
 }
 
 .form ul {
-  list-style-type: none; /* Removes the bullet points */
+  list-style: none; /* Removes the bullet points */
   padding-left: 0; /* Removes the indentation/padding on the left */
 }
 
@@ -194,12 +194,20 @@ main {
 }
 
 .post {
-  max-width: 600px;
-  margin: 20px auto;
+  width: 100%;
+  margin: 20px 0 20px 0;
   padding: 30px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.postfooter ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .description {
@@ -212,7 +220,7 @@ main {
 }
 
 .userscontainer ul {
-  list-style-type: none;
+  list-style: none;
   padding-left: 0;
 }
 
@@ -221,6 +229,22 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.notifcontainer {
+  width: 85%;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+
+.notifcontainer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.notifcontainer ul li {
+  font-size: var(--font-size-base);
+  padding: 0 10px 0 10px;
 }
 
 .error {
@@ -279,5 +303,10 @@ main {
 
   .userscontainer ul li{
     font-size: var(--font-size-base-desktop);
+  }
+
+  .notifcontainer ul li {
+    font-size: var(--font-size-base-desktop);
+    padding: 0 20px 0 20px;
   }
 }

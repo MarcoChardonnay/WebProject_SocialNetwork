@@ -304,12 +304,27 @@ class DatabaseHelper
      * @param string $message The message of the notification
      * @return bool True if the notification is added, false otherwise
      */
-    public function addNotification(int $ID_user, string $message): bool
+    public function addNotification(int $user_action, int $user_target, string $type): bool
     {
-        $query = "INSERT INTO notifications (k_user, message) VALUES (?, ?)";
+        $query = "INSERT INTO notifications (k_action, k_target, isRead, type) VALUES (?, ?, 0, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("is", $ID_user, $message);
+        $stmt->bind_param("iis", $user_action, $user_target, $type);
         return $stmt->execute();
+    }
+
+    /**
+     * Function to get all the notifications of a user
+     * @param int $ID_user The ID of the user
+     * @return array of array The notifications of the user
+     */
+    public function getNotifications(int $ID_user): array
+    {
+        $query = "SELECT * FROM notifications WHERE k_target = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ID_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /**
