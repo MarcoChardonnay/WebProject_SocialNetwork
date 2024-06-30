@@ -71,7 +71,7 @@ nav li a{
 
 .spacer {
   display: block;
-  padding-top: var(--icon-size) 0 var(--icon-size) 0;
+  padding-top: var(--icon-size);
 }
 
 main {
@@ -90,7 +90,7 @@ main {
 
 .websubtitle {
   font-size: var(--font-size-base);
-  margin: 5px 10px 5px 10px;
+  width: 80%;
 }
 
 .form-wrapper {
@@ -208,6 +208,7 @@ main {
 
 .userscontainer {
   width: 85%;
+  margin-top: 20px;
 }
 
 .userscontainer ul {

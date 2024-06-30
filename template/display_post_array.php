@@ -9,7 +9,18 @@
     </div>
 <?php endif; ?>
 <div class="postcontainer">
+    <?php if (empty($retrievedPosts)) : ?>
+        <?php if (isset($templateParams['isHomePage']) && $templateParams['isHomePage']) : ?>
+            <p>There are no posts to show. You have to follow someone first.
+            <a href="search.php">Search for users</a></p>
+        <?php endif; ?>
+        <?php if (isset($templateParams['isProfilePage']) && $templateParams['isProfilePage']) : ?>
+            <p>There are no posts to show. <a href="post.php">Post Something now!</a></p>
+        <?php endif; ?>
+    <?php endif; ?>
+    <?php // echo '<pre>'; var_dump($retrievedPosts); echo '</pre>'; ?>
     <?php foreach ($retrievedPosts as $post) : ?>
+        <?php // echo '<pre>'; var_dump($post); echo '</pre>'; ?>
         <div class="post">
             <div class="userhandle">
                 <p><?php echo $post['k_user']; ?></p>

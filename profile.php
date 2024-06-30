@@ -18,7 +18,7 @@ foreach ($retrievedPosts as &$post) {
     $post['description'] = substr($post['description'], 0, 100) . "...";
     $post['description'] = htmlspecialchars($post['description']);
 }
-
+unset($post); // Break the reference with the last element
 // Base params
 $templateParams['title'] = 'Profile';
 $templateParams['fileName'] = 'display_post_array.php';

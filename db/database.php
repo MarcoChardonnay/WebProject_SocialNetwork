@@ -184,8 +184,9 @@ class DatabaseHelper
     */
     public function getPostsByID(int $ID_user): array
     {
-        $query = "SELECT posts.* FROM posts, users WHERE users.id_user = $ID_user AND posts.k_user = users.id_user ORDER BY posts.datetime DESC";
+        $query = "SELECT posts.* FROM posts, users WHERE users.id_user = ? AND posts.k_user = users.id_user ORDER BY posts.datetime DESC";
         $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $ID_user);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -298,15 +299,16 @@ class DatabaseHelper
     }
 
     /**
-     * Function to search for usernames
+     * Function to search for usernames excluding the logged user
      * @param string $query The query to search for
+     * @param int $ID_user The ID of the logged user to exclude
      * @return array of array The usernames that match the query
      */
-    public function searchUsernames($query) {
-        $sql = "SELECT username FROM users WHERE username LIKE ?";
+    public function searchUsernames($query, $ID_user) {
+        $sql = "SELECT username FROM users WHERE ID_user != ? AND username LIKE ?";
         $stmt = $this->db->prepare($sql);
         $query = "%$query%";
-        $stmt->bind_param("s", $query);
+        $stmt->bind_param("is", $ID_user, $query);
         $stmt->execute();
         $result = $stmt->get_result();
         $users = $result->fetch_all(MYSQLI_ASSOC);
