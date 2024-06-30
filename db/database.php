@@ -328,6 +328,21 @@ class DatabaseHelper
     }
 
     /**
+        * Function to mark a notification as read or unread
+        * @param int $ID_notif The ID of the notification
+        * @param bool $status current status of the notification
+        * @return bool True if the operation is successful, false otherwise
+    */
+    public function toggleReadStatus(int $ID_notif, bool $status): bool
+    {
+        $newStatus = $status ? 0 : 1;
+        $query = "UPDATE notifications SET isRead = ? WHERE ID_notif = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $newStatus, $ID_notif);
+        return $stmt->execute();
+    }
+
+    /**
      * Function to search for usernames excluding the logged user
      * @param string $query The query to search for
      * @param int $ID_user The ID of the logged user to exclude

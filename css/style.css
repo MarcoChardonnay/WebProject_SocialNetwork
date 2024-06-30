@@ -16,6 +16,7 @@
   --icon-size-desktop: calc(var(--icon-size) + 5px);
   --font-size-base-desktop: 1.5rem;
   --font-size-sub: 1rem;
+  --button-hover: hsl(300, 30%, 70%);
 }
 
 /* * {
@@ -161,7 +162,7 @@ main {
   width: 100%;
   height: 200px;
   resize: vertical; /* Allow vertical resizing */
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
   padding: 10px;
   font-size: var(--font-size-base);
   border: 1px solid var(--border-color);
@@ -200,7 +201,7 @@ main {
   border: 1px solid var(--border-color);
   border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .postfooter ul{
@@ -229,12 +230,43 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.toggleFollow{
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: calc(var(--font-size-base) - 2px);
+}
+
+.toggleFollow:hover {
+  background-color: var(--button-hover);
 }
 
 .notifcontainer {
-  width: 85%;
+  width: 90%;
   margin-top: 20px;
-  border: 1px solid black;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+.toggleReadStatus {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: calc(var(--font-size-base) - 2px);
+}
+
+.toggleReadStatus:hover {
+  background-color: var(--button-hover);
+}
+
+.unread {
+  background-color: hsl(300, 68%, 90%);
+}
+
+.read {
+  background-color: hsl(0, 0%, 68%);
 }
 
 .notifcontainer ul {
@@ -245,6 +277,10 @@ main {
 .notifcontainer ul li {
   font-size: var(--font-size-base);
   padding: 0 10px 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .error {
@@ -308,5 +344,9 @@ main {
   .notifcontainer ul li {
     font-size: var(--font-size-base-desktop);
     padding: 0 20px 0 20px;
+  }
+
+  .toggleReadStatus {
+    font-size: var(--font-size-base-desktop);
   }
 }

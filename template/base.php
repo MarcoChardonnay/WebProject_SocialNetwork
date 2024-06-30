@@ -19,7 +19,7 @@
     if(isset($templateParams["jsFile"])):
         foreach($templateParams["jsFile"] as $script):
     ?>
-        <script src="js/<?php echo $script; ?>"></script>
+        <script src="js/<?php echo $script; ?>" defer></script>
     <?php
         endforeach;
     endif;

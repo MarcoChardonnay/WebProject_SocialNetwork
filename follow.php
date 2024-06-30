@@ -12,6 +12,7 @@ if (isset($_POST['ID_user']) && isset($_POST['following'])) {
     $followStatus = filter_var($_POST['following'], FILTER_VALIDATE_BOOLEAN); // Convert to boolean
     // Using toggleFollow to change the database
     $toggleSuccess = $dbHelper->toggleFollow($_SESSION['ID_user'], $_POST['ID_user'], $followStatus);
+
     // Add a Notification
     $actionType = $followStatus ? "unfollow" : "follow";
     $dbHelper->addNotification($_SESSION['ID_user'], $_POST['ID_user'], $actionType);
