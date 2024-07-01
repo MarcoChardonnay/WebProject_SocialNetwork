@@ -2,24 +2,31 @@ document.addEventListener('DOMContentLoaded', function(){
     document.querySelectorAll('.toggleReadStatus').forEach(button => {
         button.addEventListener('click', function() {
             const notifId = this.getAttribute('data-notif-id');
-            const isRead = this.value === 'Mark as Unread';
+            const isRead = this.value === 'Read';
             console.log("Read status: " + isRead +", Notification ID: " + notifId);
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'toggleread.php', true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onload = function() {
+            xhr.onload = function () {
                 if (this.status == 200) {
+                    // Parse the JSON response
+                    // var response = JSON.parse(this.responseText);
+                    // console.log(response.message);
                     console.log(this.responseText);
                     if (isRead) {
-                        button.value = 'Mark as Read';
-                        //TODO: change the background color of the notification
+                        console.log("isReadtrue");
                     } else {
-                        button.value = 'Mark as Unread';
+                        button.value = 'Read';
+                        //make the button disabled
+                        button.disabled = true;
                         //TODO: change the background color of the notification
+                        //structure div>ul>li>form>button; li must change class
+                        button.parentElement.parentElement.classList.remove('unread');
+                        button.parentElement.parentElement.classList.add('read');
                     }
                 }
             };
-            xhr.send('ID_notif=' + notifId + '&isRead=' + isRead);
+            xhr.send('ID=' + notifId + '&isRead=' + isRead);
         });
     });
 });

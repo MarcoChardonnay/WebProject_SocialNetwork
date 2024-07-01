@@ -16,7 +16,7 @@ if (empty($retrievedPosts)) {
 unset($post); // Break the reference with the last element
 
 // Base params
-$templateParams['title'] = 'Home';
+$templateParams['title'] = 'Calliope - Home';
 $templateParams['fileName'] = 'display_post_array.php';
 $templateParams['navbar'] = true;
 $templateParams['isHomePage'] = true;

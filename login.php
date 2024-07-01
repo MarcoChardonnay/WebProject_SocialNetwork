@@ -49,7 +49,7 @@ if (isset($_POST['loginInput']) && isset($_POST['password'])) {
 }
 
 // Base params
-$templateParams['title'] = 'Login';
+$templateParams['title'] = 'Calliope - Login';
 $templateParams['fileName'] = 'login_form.php';
 $templateParams['navbar'] = false;
 //$templateParams['scriptFileName'] = '';

@@ -29,7 +29,7 @@ unset($notif);
 // print_r($notifications); echo "<br>";
 
 // Base params
-$templateParams['title'] = 'Notifications';
+$templateParams['title'] = 'Calliope - Notifications';
 $templateParams['fileName'] = 'display_notif.php';
 $templateParams['navbar'] = true;
 $templateParams['jsFile'] = array('toggleReadStatus.js');

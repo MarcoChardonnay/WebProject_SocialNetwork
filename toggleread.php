@@ -1,16 +1,22 @@
 <?php
 require_once('dbinit.php');
-if (!isset($_POST['ID_notif']) || !isset($_POST['isRead'])) {
+if (!isset($_POST['ID']) || !isset($_POST['isRead'])) {
     header("Location: notifications.php");
     exit;
 }
 
-if (isset($_POST['ID_notif']) && isset($_POST['isRead'])) {
-    $isRead = filter_var($_POST['isRead'], FILTER_VALIDATE_BOOLEAN); // Convert to boolean
-    $toggleSuccess = $dbHelper->toggleReadStatus($_POST['ID_notif'], $_POST['isRead']);
-    if ($toggleSuccess) {
+if (isset($_POST['ID']) && isset($_POST['isRead'])) {
+    $IDnotif = $_POST['ID'] ?? null;
+    $isRead = $_POST['isRead'] ?? null;
+    $IDnotif = (int)$IDnotif;
+    $isRead = (int)$isRead;
+    $toggleSuccessNotif = $dbHelper->toggleReadStatus($IDnotif, $isRead);
+
+    if ($toggleSuccessNotif) {
+        // header('Content-Type: application/json');
         echo json_encode(["success" => true, "isRead" => !$isRead]);
     } else {
+        // header('Content-Type: application/json');
         echo json_encode(["success" => false]);
     }
 } else {

@@ -7,7 +7,7 @@ $user = $dbHelper->getUserInfo($_SESSION['ID_user']);
 //if settings form is submitted
 
 // Base params
-$templateParams['title'] = 'Settings';
+$templateParams['title'] = 'Calliope - Settings';
 $templateParams['fileName'] = 'settings_form.php';
 $templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';

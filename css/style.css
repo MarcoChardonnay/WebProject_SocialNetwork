@@ -316,7 +316,7 @@ main {
 
   .spacer {
     display: block;
-    padding-top: var(--icon-size-desktop) 0 var(--icon-size-desktop) 0;
+    padding-top: var(--icon-size-desktop);
   }
 
   .form-wrapper {
@@ -325,6 +325,11 @@ main {
 
   .form-wrapper h1, h2, h3 {
     font-size: var(--font-size-base-desktop);
+  }
+
+  .text-wrap h1, h2 {
+    font-size: var(--font-size-base-desktop);
+    font-weight: normal;
   }
 
   .postcontainer {

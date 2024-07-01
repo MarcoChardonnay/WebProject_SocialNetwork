@@ -319,7 +319,7 @@ class DatabaseHelper
      */
     public function getNotifications(int $ID_user): array
     {
-        $query = "SELECT * FROM notifications WHERE k_target = ?";
+        $query = "SELECT * FROM notifications WHERE k_target = ? ORDER BY notifications.datetime DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $ID_user);
         $stmt->execute();
@@ -339,7 +339,16 @@ class DatabaseHelper
         $query = "UPDATE notifications SET isRead = ? WHERE ID_notif = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $newStatus, $ID_notif);
-        return $stmt->execute();
+        if ($stmt->execute()) {
+            // Check if any rows were updated
+            if ($stmt->affected_rows > 0) {
+                return true;
+            } else {
+                return false; // No rows updated, possibly invalid notification ID
+            }
+        } else {
+            return false; // Query execution failed
+        }
     }
 
     /**

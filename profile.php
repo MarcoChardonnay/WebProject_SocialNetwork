@@ -20,7 +20,7 @@ foreach ($retrievedPosts as &$post) {
 }
 unset($post); // Break the reference with the last element
 // Base params
-$templateParams['title'] = 'Profile';
+$templateParams['title'] = 'Calliope - Profile';
 $templateParams['fileName'] = 'display_post_array.php';
 $templateParams['navbar'] = true;
 $templateParams['isProfilePage'] = true;

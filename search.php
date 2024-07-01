@@ -10,7 +10,7 @@ foreach ($randomUsers as &$user) {
 unset($user); // Break the reference with the last element
 // var_dump($randomUsers); echo "<br>";
 // Base params
-$templateParams['title'] = 'Search';
+$templateParams['title'] = 'Calliope - Search';
 $templateParams['fileName'] = 'search_page.php';
 $templateParams['navbar'] = true;
 $templateParams['jsFile'] = array('toggleFollow.js');

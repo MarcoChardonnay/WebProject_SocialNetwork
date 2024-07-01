@@ -23,7 +23,7 @@ if (isset($_POST['descrtext'])) {
 }
 
 //base params
-$templateParams['title'] = 'New Post';
+$templateParams['title'] = 'Calliope - New Post';
 $templateParams['fileName'] = 'newPost_form.php';
 $templateParams['navbar'] = true;
 $templateParams['jsFile'] = array('countChars.js');

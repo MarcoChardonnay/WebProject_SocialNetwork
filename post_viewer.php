@@ -13,7 +13,7 @@ if (isset($_GET['post']) && is_numeric($_GET['post'])) { //ensure that the value
 
 
 // Base params
-$templateParams['title'] = 'Profile';
+$templateParams['title'] = 'Calliope - Profile';
 $templateParams['fileName'] = 'display_post.php';
 $templateParams['navbar'] = true;
 //$templateParams['scriptFileName'] = '';

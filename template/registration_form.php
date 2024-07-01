@@ -29,7 +29,7 @@
             </li>
         </ul>
     </form>
-    <p>Already registered? <a href="login.php">Go to login</a></p>
+    <p>Already a member? <a href="login.php">Go to login</a></p>
     <?php if (isset($templateParams["registrationerror"])) : ?>
         <div class="error" role="alert" aria-live="assertive">
             <p><?php echo $templateParams["registrationerror"] ?></p>
