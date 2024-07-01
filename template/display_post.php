@@ -17,6 +17,7 @@
                 <li>
                     <p>posted on <?php echo $post['datetime'] ?></p>
                 </li>
+            </ul>
         </div>
     </div>
 </div>

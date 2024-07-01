@@ -1,13 +1,13 @@
 <?php if (isset($templateParams['isProfilePage']) && $templateParams['isProfilePage']) : ?>
     <div class="text-wrap">
         <h1> <?php echo $user['username']; ?> </h1>
-        <!-- <h2>Bio</h2> -->
         <div class="userdata">
-            <h3 id="followers"><?php echo $followers ?> Followers</h3>
-            <h3 id="following"><?php echo $following ?> Following</h3>
+            <h2 id="followers"><?php echo $followers ?> Followers</h2>
+            <h2 id="following"><?php echo $following ?> Following</h2>
         </div>
     </div>
 <?php endif; ?>
+
 <div class="postcontainer">
     <?php if (empty($retrievedPosts)) : ?>
         <?php if (isset($templateParams['isHomePage']) && $templateParams['isHomePage']) : ?>
@@ -18,9 +18,7 @@
             <p>There are no posts to show. <a href="post.php">Post Something now!</a></p>
         <?php endif; ?>
     <?php endif; ?>
-    <?php // echo '<pre>'; var_dump($retrievedPosts); echo '</pre>'; ?>
     <?php foreach ($retrievedPosts as $post) : ?>
-        <?php // echo '<pre>'; var_dump($post); echo '</pre>'; ?>
         <div class="post">
             <div class="userhandle">
                 <p><?php echo $post['k_user']; ?></p>
@@ -32,6 +30,7 @@
                     <li>
                         <p><?php echo $post['datetime'] ?></p>
                     </li>
+                </ul>
             </div>
         </div>
     <?php endforeach; ?>

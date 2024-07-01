@@ -5,7 +5,7 @@
         <ul>
             <li>
                 <label for="username">Username or Email:</label>
-                <input type="text" id="loginInput" name="loginInput" required>
+                <input type="text" id="username" name="username" required>
             </li>
             <li>
                 <label for="password">Password:</label>

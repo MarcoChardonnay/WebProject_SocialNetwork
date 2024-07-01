@@ -1,10 +1,3 @@
-<!-- <input type="text" id="searchUsers" placeholder="Search username...">
-<div class="userscontainer">
-    <p>Search results:</p>
-    <ul id="searchResult">
-    </ul>
-</div> -->
-
 <div class="userscontainer">
     <p>Suggested users:</p>
     <ul>
