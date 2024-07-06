@@ -15,7 +15,7 @@
             <a href="search.php">Search for users</a></p>
         <?php endif; ?>
         <?php if (isset($templateParams['isProfilePage']) && $templateParams['isProfilePage']) : ?>
-            <p>There are no posts to show. <a href="post.php">Post Something now!</a></p>
+            <p>There are no posts to show. <a href="newPost.php">Post Something now!</a></p>
         <?php endif; ?>
     <?php endif; ?>
     <?php foreach ($retrievedPosts as $post) : ?>
