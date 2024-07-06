@@ -1,6 +1,9 @@
 <div class="userscontainer">
     <p>Suggested users:</p>
     <ul>
+        <?php if(empty($randomUsers)) : ?>
+            <p>Looks like you're the first one here! Invite more poets to join</p>
+        <?php else : ?>
         <?php foreach ($randomUsers as $u) : ?>
             <?php //var_dump($u); ?>
             <li>
@@ -14,5 +17,6 @@
                 </form>
             </li>
         <?php endforeach; ?>
+        <?php endif; ?>
     </ul>
 </div>
