@@ -4,8 +4,8 @@
     <form class="form" action="login.php" method="POST">
         <ul>
             <li>
-                <label for="username">Username or Email:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="loginInput">Username or Email:</label>
+                <input type="text" id="loginInput" name="loginInput" required>
             </li>
             <li>
                 <label for="password">Password:</label>
