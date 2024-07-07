@@ -21,10 +21,6 @@
                 <div id="emailFeedback" aria-live="polite"></div>
             </li>
             <li>
-                <label for="notification">Receive Notifications:</label>
-                <input type="checkbox" id="notification" name="notification" value="1">
-            </li>
-            <li>
                 <input type="submit" value="Register">
             </li>
         </ul>

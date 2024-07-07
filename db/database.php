@@ -114,13 +114,13 @@ class DatabaseHelper
      * @param string $profile_picture The profile picture of the user
      * @return bool True if the registration is successful, false otherwise
      */
-    public function registerUser(string $username, string $password, string $email, int $notification): bool
+    public function registerUser(string $username, string $password, string $email): bool
     {
         $successful = false;
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO users (username, password, email, notification) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO users (username, password, email) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssi", $username, $hashedPassword, $email, $notification);
+        $stmt->bind_param("sss", $username, $hashedPassword, $email);
         if ($stmt->execute()) {
             $successful = true;
         }
@@ -134,7 +134,7 @@ class DatabaseHelper
      */
     public function getUserInfo(int $ID_user): array
     {
-        $query = "SELECT `ID_user`, `username`, `password`, `email`, `notification` FROM `users` WHERE `ID_user` = ?";
+        $query = "SELECT `ID_user`, `username`, `password`, `email` FROM `users` WHERE `ID_user` = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $ID_user);
         $stmt->execute();

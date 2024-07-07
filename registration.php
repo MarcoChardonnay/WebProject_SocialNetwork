@@ -19,12 +19,6 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
         $templateParams["registrationerror"] = "The password format for the confirmation is not valid";
     }
     $email = $_POST['email'];
-    if(isset($_POST['notification'])){
-        $notification = $_POST['notification'];
-    }
-    else{
-        $notification = 0;
-    }
     //check if user exists
     $IDuser = $dbHelper->getIDuserbyUsername($username);
     if($IDuser != -1){    //username found
@@ -36,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confi
     }
     else{
         //register user
-        if($dbHelper->registerUser($username, $password, $email, $notification)){
+        if($dbHelper->registerUser($username, $password, $email)){
             //registration successful
             $templateParams["registrationsuccess"] = "The registration was successful, you will be redirected to the login page in 5 seconds. If not, click <a href='login.php'>here</a>";
             header("refresh:5;url=login.php");
